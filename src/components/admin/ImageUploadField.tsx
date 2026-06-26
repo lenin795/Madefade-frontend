@@ -36,7 +36,7 @@ export function ImageUploadField({ value, onChange }: ImageUploadFieldProps) {
             type="button"
             onClick={() => onChange('')}
             className="absolute top-2 right-2 size-7 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/80"
-          >
+          >create
             <X className="size-3.5" />
           </button>
         </div>
