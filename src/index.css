@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Archivo+Expanded:wght@700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+/* Tailwind v4 defaults to the prefers-color-scheme media query for `dark:`.
+   We toggle dark mode manually via a `dark` class on <html> (see
+   ThemeContext), so we override the variant to be class-based instead. */
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  /* ---- Made or Fade design tokens (premium palette) ---- */
+  --color-ink: #12121b;
+  --color-paper: #faf9f6;
+  --color-paper-dim: #efece4;
+  --color-made: #0f9d6e;
+  --color-made-deep: #0c7f59;
+  --color-fade: #d6455d;
+  --color-fade-deep: #b8344a;
+  --color-amber: #e8a33d;
+  --color-line: #e2ded3;
+  --color-ink-soft: #5a5a6b;
+
+  --font-display: 'Archivo Expanded', 'Archivo', system-ui, sans-serif;
+  --font-heading: 'Archivo', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  --radius-card: 1.25rem;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+html.dark body {
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+}
+
+/* Visible keyboard focus everywhere, no exceptions */
+:focus-visible {
+  outline: 3px solid var(--color-amber);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom scrollbar — quiet, not the browser default chrome */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-line);
+  border-radius: 8px;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: #2a3530;
+}
